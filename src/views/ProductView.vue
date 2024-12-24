@@ -54,19 +54,23 @@ export default {
 </script>
 
 <template>
+    <div class="mx-auto px-6 py-6">
+        
     <div class="flex">
-        <input type="text" placeholder="Product Name" v-model="product_name">
-        <input type="text" placeholder="Product Amount" v-model="product_amount">
-        <button @click="create" v-text="is_edit ? 'Update' : 'Create'"></button>
+        <input type="text" class="rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" placeholder="Product Name" v-model="product_name">
+        <input type="text" class="rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" placeholder="Product Amount" v-model="product_amount">
+        <button @click="create" v-text="is_edit ? 'Update' : 'Create'" class="ml-1 px-2 bg-indigo-600 text-center text-white rounded-md"></button>
     </div>
     <div class="mt-2">
         <ul>
-            <li v-for="product in products" :key="product.id">
+            <li v-for="product in products" :key="product.id" class="my-2">
                 <span v-text="product.product_name + ': '+product.product_amount"></span>
-                <button @click="edit(product)" class="ml-1">Edit</button>
-                <button @click="deleteFrom(product)" class="ml-1">X</button>
+                <button @click="edit(product)" class="ml-1 px-2 bg-indigo-600 text-center text-white rounded-md">Edit</button>
+                <button @click="deleteFrom(product)" class="ml-1 px-2 bg-red-600 text-center text-white rounded-md">X</button>
             </li>
         </ul>
+    </div>
+    
     </div>
 </template>
 
